@@ -1,6 +1,5 @@
 FROM phusion/baseimage:0.9.19
 MAINTAINER fish2
-# FORK FROM nheinemans/docker-storman on GitHub
 
 # Set correct environment variables
 ARG password
