@@ -24,5 +24,4 @@ Then run
 	docker run -d --name storman --restart always --privileged --user root -e TZ=<timezone> -p 8443:8443 fish2/docker-storman
 
 **Credits**
-Nick Heinemans <nick@hostlogic.nl>
 fish2
