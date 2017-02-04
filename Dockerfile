@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y net-tools unzip \
 && sh -c "echo root:${password:-docker} |chpasswd" \
 
 # Download StorMan Packages
-&& curl -o /tmp/msm_linux.tgz http://download.adaptec.com/raid/storage_manager/msm_linux_x64_v2_03_22476.tgz && tar -xzvf /tmp/msm_linux.tgz -C /tmp \
+&& curl -o /tmp/msm_linux.tgz http://download.adaptec.com/raid/storage_manager/msm_linux_x64_v2_03_22476.tgz && tar xf /tmp/msm_linux.tgz -C /tmp \
 
 # Install StorMan
 && dpkg -i /tmp/manager/StorMan-2.03-22476_amd64.deb \
