@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y net-tools unzip \
 && dpkg -i /tmp/manager/StorMan-2.03-22476_amd64.deb \
 
 # Clean Up
-&& apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && apt-get remove --purge -y unzip
+&& apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Ports, Entry Points and Volumes
 EXPOSE 8443
