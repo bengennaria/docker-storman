@@ -6,23 +6,23 @@ ARG password
 ENV JAVA_HOME /usr/StorMan/jre
 ENV DEBIAN_FRONTEND="noninteractive"
 
-# Install Packages and Upgrade as baseimage 0.9.19
-RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold" && apt-get install -y unzip net-tools
+# Install Update and Install Packages
+RUN apt-get update && apt-get install -y net-tools unzip \
 
 # Disable SSH
-RUN rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
+&& rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh \
 
 # Set Root Password Build With --build-arg password={put your password here}
-RUN sh -c "echo root:${password:-docker} |chpasswd"
+&& sh -c "echo root:${password:-docker} |chpasswd" \
 
 # Download StorMan Packages
-RUN curl -o /tmp/msm_linux.tgz http://download.adaptec.com/raid/storage_manager/msm_linux_x64_v2_03_22476.tgz && tar -xzvf /tmp/msm_linux.tgz -C /tmp
+&& curl -o /tmp/msm_linux.tgz http://download.adaptec.com/raid/storage_manager/msm_linux_x64_v2_03_22476.tgz && tar -xzvf /tmp/msm_linux.tgz -C /tmp \
 
 # Install StorMan
-RUN dpkg -i /tmp/manager/StorMan-2.03-22476_amd64.deb
+&& dpkg -i /tmp/manager/StorMan-2.03-22476_amd64.deb \
 
 # Clean Up
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+&& apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && apt-get remove --purge -y unzip && apt-get autoremove -y
 
 # Ports, Entry Points and Volumes
 EXPOSE 8443
