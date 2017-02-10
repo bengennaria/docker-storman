@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y net-tools unzip \
 && dpkg -i /tmp/manager/StorMan-2.03-22476_amd64.deb \
 
 # Clean Up
-&& apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+&& apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /etc/crontab /etc/service/cron /etc/cron.* && apt-get remove --purge -y cron
 
 # Ports, Entry Points and Volumes
 EXPOSE 8443
