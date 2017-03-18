@@ -7,7 +7,7 @@ ENV JAVA_HOME /usr/StorMan/jre
 ENV DEBIAN_FRONTEND="noninteractive"
 
 # Install Update and Install Packages
-RUN apt-get update && apt-get install -y net-tools unzip \
+RUN apt-get update && apt-get install -y apt-utils net-tools unzip \
 
 # Disable SSH
 && rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh \
