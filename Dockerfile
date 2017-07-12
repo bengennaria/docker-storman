@@ -19,10 +19,10 @@ RUN apt-get update && apt-get install -y apt-utils net-tools unzip \
 && locale-gen en_US.UTF-8 \
 
 # Download StorMan Packages
-&& curl -o /tmp/msm_linux.tgz http://download.adaptec.com/raid/storage_manager/msm_linux_x64_v2_03_22476.tgz && tar xf /tmp/msm_linux.tgz -C /tmp \
+&& curl -o /tmp/msm_linux.tgz http://download.adaptec.com/raid/storage_manager/msm_linux_x64_v2_04_22665.tgz && tar xf /tmp/msm_linux.tgz -C /tmp \
 
 # Install StorMan
-&& dpkg -i /tmp/manager/StorMan-2.03-22476_amd64.deb \
+&& dpkg -i /tmp/manager/StorMan-2.04-22665_amd64.deb \
 
 # Clean Up
 && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /etc/crontab /etc/service/cron /etc/cron.* && apt-get remove --purge -y cron
