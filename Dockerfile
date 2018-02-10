@@ -14,9 +14,10 @@ sh -c "echo root:${password:-docker} |chpasswd" && \
 curl -o /tmp/msm_linux.tgz http://download.adaptec.com/raid/storage_manager/msm_linux_x64_v2_05_22932.tgz && \
 tar -xf /tmp/msm_linux.tgz -C /tmp && \
 DEBIAN_FRONTEND=noninteractive dpkg -i /tmp/manager/StorMan-2.05-22932_amd64.deb && \
-apt-get remove --purge -y curl && apt-get autoremove -y && apt-get clean && \
+apt-get autoremove -y && apt-get clean && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Ports, Entry Points and Volumes
 EXPOSE 8443
 ENTRYPOINT /etc/init.d/stor_agent start && /etc/init.d/stor_cimserver start && /usr/StorMan/apache-tomcat/bin/catalina.sh run
+HEALTHCHECK CMD curl -k --fail https://localhost:8443/ || exit 1
