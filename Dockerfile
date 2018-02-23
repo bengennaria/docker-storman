@@ -20,4 +20,5 @@ rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 # Ports, Entry Points and Volumes
 EXPOSE 8443
 ENTRYPOINT /etc/init.d/stor_agent start && /etc/init.d/stor_cimserver start && /usr/StorMan/apache-tomcat/bin/catalina.sh run
-HEALTHCHECK CMD curl -k --fail https://localhost:8443/ || exit 1
+HEALTHCHECK --interval=1m --timeout=5s --retries=3 \
+  CMD curl -skSL -D - https://localhost:8443 -o /dev/null || exit 1
