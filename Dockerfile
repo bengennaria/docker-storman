@@ -18,7 +18,6 @@ apt-get autoremove -y && apt-get clean && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Ports, Entry Points and Volumes
-VOLUME /usr/StorMan/config /usr/StorMan/logs
 EXPOSE 8443
 ENTRYPOINT /etc/init.d/stor_agent start && /etc/init.d/stor_cimserver start && /usr/StorMan/apache-tomcat/bin/catalina.sh run
 HEALTHCHECK --interval=1m --timeout=5s --retries=3 \
