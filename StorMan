@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+/etc/init.d/stor_agent start
+/etc/init.d/stor_tomcat start
+/etc/init.d/stor_cimserver start
