@@ -19,7 +19,7 @@ curl -o /tmp/msm_linux.tgz http://download.adaptec.com/raid/storage_manager/msm_
 tar -xf /tmp/msm_linux.tgz -C /tmp && \
 dpkg -i /tmp/manager/StorMan-3.03-23668_amd64.deb && \
 apt autoremove -y && apt clean && \
-rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* &&\
+rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
 chmod +x /etc/my_init.d/StorMa
 
 # Ports, Entry Points and Volumes
