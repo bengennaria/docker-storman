@@ -2,7 +2,7 @@
 [![](https://images.microbadger.com/badges/image/fish2/docker-storman.svg)](https://microbadger.com/images/fish2/docker-storman "Get your own image badge on microbadger.com")
 
 **Purpose**
-Container running the Adaptec Maxview Storage Manager application and the necessary daemons (cimserver and agent).
+Container running the Adaptec Maxview Storage Manager application and the necessary daemons.
 
 With this container, you can manage an Adaptec RAID adapter on the dockerhost. It is based on Ubuntu from phusion/baseimage and Adaptec MSM version V3.03-23668
 
