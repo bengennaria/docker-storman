@@ -20,7 +20,7 @@ tar -xf /tmp/msm_linux.tgz -C /tmp && \
 dpkg -i /tmp/manager/StorMan-3.03-23668_amd64.deb && \
 apt autoremove -y && apt clean && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-chmod +x /etc/my_init.d/StorMa
+chmod +x /etc/my_init.d/StorMan
 
 # Ports, Entry Points and Volumes
 EXPOSE 8443
