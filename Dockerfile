@@ -15,9 +15,9 @@ COPY /StorMan /etc/my_init.d/StorMan
 RUN apt update && apt remove --purge -y openssh-client openssh-server openssh-sftp-server && apt upgrade -y -o Dpkg::Options::="--force-confold" && apt install -y net-tools unzip && \
 rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh && \
 sh -c "echo root:${password:-docker} |chpasswd" && \
-curl -o /tmp/msm_linux.tgz http://download.adaptec.com/raid/storage_manager/msm_linux_x64_v3_03_23668.tgz && \
+curl -o /tmp/msm_linux.tgz http://download.adaptec.com/raid/storage_manager/msm_linux_x64_v3_04_23699.tgz && \
 tar -xf /tmp/msm_linux.tgz -C /tmp && \
-dpkg -i /tmp/manager/StorMan-3.03-23668_amd64.deb && \
+dpkg -i /tmp/manager/StorMan-3.04-23699_amd64.deb && \
 apt autoremove -y && apt clean && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
 chmod +x /etc/my_init.d/StorMan
