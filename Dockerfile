@@ -12,7 +12,7 @@ CMD ["/sbin/my_init"]
 COPY /StorMan /etc/my_init.d/StorMan
 
 # Install Update and Install Packages
-RUN apt-get update && apt-get remove --purge -y openssh-client openssh-server openssh-sftp-server && apt-get upgrade -y -o Dpkg::Options::="--force-confold" && apt-get install -y net-tools unzip && apt-get autoremove -y && apt-get autoclean && \
+RUN apt-get update && apt-get purge -y openssh-client openssh-server openssh-sftp-server && apt-get upgrade -y && apt-get install -y net-tools unzip && apt-get autoremove -y && apt-get clean && \
 sh -c "echo root:${password:-docker} |chpasswd" && \
 curl -o /tmp/msm_linux.tgz http://download.adaptec.com/raid/storage_manager/msm_linux_x64_v3_04_23699.tgz && \
 tar -xf /tmp/msm_linux.tgz -C /tmp && \
