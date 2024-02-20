@@ -1,7 +1,7 @@
 FROM phusion/baseimage:focal-1.0.0
 
 # set maintainer label
-LABEL maintainer="fish2"
+LABEL maintainer="bengennaria"
 
 # Set correct environment variables
 ARG password
