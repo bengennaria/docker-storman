@@ -1,4 +1,4 @@
-# fish2/docker-storman
+# bengennaria/docker-storman -- originally fish2/docker-storman
 
 **Purpose**
 
@@ -12,7 +12,7 @@ It should be run with --privileged, in order to have access to the hardware and 
 
 Listening on port 8443 tcp (user=root, password=docker):
 
-	docker create --name=storman --hostname=storman --privileged -v /path/to/appdata/config:/usr/StorMan/config -v /path/to/appdata/logs:/usr/StorMan/logs -p 8443:8443/tcp fish2/docker-storman
+	docker create --name=storman --hostname=storman --privileged -v /path/to/appdata/config:/usr/StorMan/config -v /path/to/appdata/logs:/usr/StorMan/logs -p 8443:8443/tcp bengennaria/docker-storman
 
 **Build with Custom Password**
 
